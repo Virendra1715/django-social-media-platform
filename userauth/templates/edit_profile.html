@@ -1,0 +1,95 @@
+{% load static %}
+
+<div class="modal fade"
+     id="exampleModal1"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h1 class="modal-title fs-5">
+                    Edit Profile
+                </h1>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+
+            </div>
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="modal-body">
+
+                    <div class="mb-3">
+
+                        <label class="col-form-label">
+                            Profile Photo
+                        </label>
+
+                        <input type="file"
+                               name="image"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="col-form-label">
+                            Bio
+                        </label>
+
+                        <textarea
+                            class="form-control"
+                            name="bio"
+                            placeholder="Bio...">{{ user_profile.bio }}</textarea>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="col-form-label">
+                            Location
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="location"
+                               value="{{ user_profile.location }}">
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Close
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Update Profile
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
